@@ -120,6 +120,7 @@ plt.xlabel('Monthly Fuel Spend (NGN)')
 plt.ylabel('Frequency')
 # Format the x-axis to show plain numbers with commas (e.g., 10,000,000)
 ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
