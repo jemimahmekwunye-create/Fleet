@@ -64,6 +64,7 @@ import matplotlib.ticker as ticker
 import plotly.express as px
 import scipy.stats as stats
 import statsmodels.formula.api as smf
+from IPython.display import Image, display
 
 # Load Data
 df = pd.read_csv('Fleet Fuel Management & Digital Adoption Survey.csv', encoding='latin-1')
@@ -114,8 +115,8 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 **6.1 Distribution of Monthly Fuel Spend**
 
 ```{python}
-plt.figure(figsize=(10, 6)) 
-ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=5, kde=True, color='skyblue')
+fig = plt.figure(figsize=(10, 6)) 
+ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color='skyblue')
 plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
 plt.xlabel('Monthly Fuel Spend (NGN)')
 plt.ylabel('Frequency')
@@ -123,11 +124,10 @@ ax.xaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
 ax.xaxis.get_offset_text().set_visible(False)
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.show()
-plt.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
-plt.close()
+fig.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
+plt.close(fig) 
+display(Image(filename="monthly_fuel_spend.png"))
 ```
-![Distribution of Monthly Fuel Spend](monthly_fuel_spend.png)
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
 
