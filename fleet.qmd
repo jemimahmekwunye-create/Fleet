@@ -115,6 +115,7 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 **6.1 Distribution of Monthly Fuel Spend**
 
 ```{python}
+#| eval: false
 fig = plt.figure(figsize=(10, 6)) 
 ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color='skyblue')
 plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
@@ -128,6 +129,7 @@ fig.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
 plt.close(fig) 
 display(Image(filename="monthly_fuel_spend.png"))
 ```
+![Distribution of Monthly Fuel Spend](monthly_fuel_spend.png)
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
 
