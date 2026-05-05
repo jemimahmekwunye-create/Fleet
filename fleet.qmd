@@ -124,7 +124,10 @@ ax.xaxis.get_offset_text().set_visible(False)
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
+plt.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
+plt.close()
 ```
+![Distribution of Monthly Fuel Spend](monthly_fuel_spend.png)
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
 
