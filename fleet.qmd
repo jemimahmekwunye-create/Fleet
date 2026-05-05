@@ -114,7 +114,7 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 
 ```{python}
 plt.figure(figsize=(10, 6)) 
-ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=20, kde=False, color='skyblue')
+ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color='skyblue')
 plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
 plt.xlabel('Monthly Fuel Spend (NGN)')
 plt.ylabel('Frequency')
