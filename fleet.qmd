@@ -114,22 +114,17 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 **6.1 Distribution of Monthly Fuel Spend**
 
 ```{python}
-fig = px.histogram(
-    df, 
-    x='Monthly_Fuel_Spend_NGN', 
-    nbins=15, 
-    title='Distribution of Monthly Fuel Spend (NGN)',
-    color_discrete_sequence=['skyblue'],
-    marginal='box' # Adds a nice distribution box plot at the top (similar vibe to KDE)
-)
-# Update layout to add commas to the x-axis numbers automatically
-fig.update_layout(
-    xaxis_title='Monthly Fuel Spend (NGN)',
-    yaxis_title='Frequency',
-    xaxis=dict(tickformat=","), # This single line fixes the million-scale numbers!
-    bargap=0.05 # Adds a tiny space between bars to look cleaner
-)
-fig.show()
+plt.figure(figsize=(10, 6)) 
+ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=5, kde=True, color='skyblue')
+plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
+plt.xlabel('Monthly Fuel Spend (NGN)')
+plt.ylabel('Frequency')
+ax.ticklabel_format(style='plain', axis='x')
+# Format the x-axis to show plain numbers with commas (e.g., 10,000,000)
+ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
 ```
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
