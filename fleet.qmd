@@ -18,8 +18,11 @@ jupyter: python3
 **Dataset Description:** The dataset comprises 200 responses from a survey of fleet operators. It includes demographic and categorical variables (e.g., Sector, Fleet Size, Payment Method, Digital Tracking Usage) and continuous variables (e.g., Monthly Fuel Spend, Fuel Theft Incidents, Hours/Week on Reconciliation, Cost Savings %). 
 
 **Key Findings:**
+
 1. Organizations using digital tracking experience significantly lower fuel theft incidents compared to those not using digital tools.
+
 2. Smart Card Adoption correlates positively with a reduction in reported fuel costs, as active users report higher cost savings percentages.
+
 3. A strong inverse relationship exists between Digital Tracking Usage and the number of hours spent weekly on fuel reconciliation.
 
 **Final Recommendation:** Fleet operators should actively transition from cash-based/mixed methods to integrated digital tracking and smart fuel card solutions. Doing so will immediately lower reconciliation hours, mitigate theft, and drive significant cost savings.
