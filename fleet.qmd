@@ -335,7 +335,7 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 
 ## 12. References
 
-* Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Smart card users in Nigeria, March 2026. Ethical clearance: N/A.
+* Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Corporate and Individuals in Nigeria, March 2026. Ethical clearance: N/A.
 
 * pandas (Used for all data loading, manipulation, and cleaning): McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61.
 
@@ -363,6 +363,6 @@ Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical mod
 
 **AI Assistance Statement:** AI tools were utilized during the creation of this document strictly for code formatting, syntax optimization (Pandas, Matplotlib, Seaborn, OLS, statmodels), the decision to apply log transformation to heavily skewed data, and structuring the Quarto markdown template.
 
-**Human Judgment Applied:** Human judgment was applied in translating statistical outputs (e.g., P-values, skewed distributions, and OLS regression coefficients) into business recommendations tailored specifically to the Nigerian FinTech and fleet management sector. The formulation of the core hypotheses were strictly driven by human analytical reasoning.
+**Human Judgment Applied:** Human judgment was applied in translating statistical outputs (e.g., P-values, skewed distributions, and OLS regression coefficients) into business recommendations tailored specifically to the Corporate and fleet management sector. The core hypotheses were strictly driven by the authors analytical reasoning.
 
 **Link:** [GitHub](https://github.com/jemimahmekwunye-create/Fleet)
