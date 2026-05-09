@@ -336,28 +336,28 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 
 ## 12. References
 
-* Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Corporate and Individuals in Nigeria, March 2026. Ethical clearance: N/A.
-
 * Adi, B. (2026). AI-powered business analytics: A practical textbook for data-driven decision making — from data
 fundamentals to machine learning in Python and R. Lagos Business School / markanalytics.online.
 https://markanalytics.online
 
+*Matplotlib (Used for visualization layout):
+Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science & Engineering, 9(3), 90–95. https://doi.org/10.1109/MCSE.2007.55
+
+* Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Corporate and Individuals in Nigeria, March 2026. Ethical clearance: N/A.
+
 * pandas (Used for all data loading, manipulation, and cleaning): McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61.
 
-* Quarto (Our document format):
-Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., & Dervieux, C. (2022). Quarto (Version 1.x) [Computer software]. https://doi.org/10.5281/zenodo.5960048
-
-* Python (Our programming language):
+*Python (Our programming language):
 Python Software Foundation. (2024). Python (Version 3.12) [Computer software]. https://www.python.org/
 
-* Seaborn (Used for visualizations):
-Waskom, M. L. (2021). seaborn: statistical data visualization. Journal of Open Source Software, 6(60), 3021. https://doi.org/10.21105/joss.03021
-
-* Matplotlib (Used for visualization layout):
-Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science & Engineering, 9(3), 90–95. https://doi.org/10.1109/MCSE.2007.55
+*  Quarto (Our document format):
+Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., & Dervieux, C. (2022). Quarto (Version 1.x) [Computer software]. https://doi.org/10.5281/zenodo.5960048
 
 * SciPy (Used for hypothesis testing - T-test & ANOVA):
 Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., ... & SciPy 1.0 Contributors. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261-272. https://doi.org/10.1038/s41592-019-0686-2
+
+* Seaborn (Used for visualizations):
+Waskom, M. L. (2021). seaborn: statistical data visualization. Journal of Open Source Software, 6(60), 3021. https://doi.org/10.21105/joss.03021
 
 * Statsmodels (Used for OLS regression):
 Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical modeling with python. Proceedings of the 9th Python in Science Conference, 57-61.
