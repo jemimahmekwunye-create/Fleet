@@ -347,7 +347,7 @@ Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Scienc
 
 * pandas (Used for all data loading, manipulation, and cleaning): McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61.
 
-*Python (Our programming language):
+* Python (Our programming language):
 Python Software Foundation. (2024). Python (Version 3.12) [Computer software]. https://www.python.org/
 
 *  Quarto (Our document format):
