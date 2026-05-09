@@ -40,7 +40,7 @@ As an Executive Assistant in the Energy Technology and Intelligence sector focus
 * **Data Visualisation:** Crucial for communicating complex trends (like fuel spend over time or theft hotspots) to non-technical stakeholders such as product managers and fleet owners.
 * **Hypothesis Testing:** Used to scientifically validate whether newly launched product features (e.g., a new digital tracking dashboard) lead to a statistically significant improvement in operational metrics.
 * **Correlation Analysis:** Helps identify features that move together, such as the relationship between cash-heavy transactions and high reconciliation times, guiding product roadmaps.
-* **Regression Analysis:** Allows us to quantify the exact impact of independent variables (like fleet size and digital tools) on a target metric (like cost savings), enabling predictive modeling for prospective FinTech clients.
+* **Regression Analysis:** Allows us to quantify the exact impact of independent variables (like fleet size and digital tools) on a target metric (like cost savings), enabling predictive modeling for prospective clients.
 
 ---
 
@@ -217,7 +217,7 @@ print(f"F-statistic: {f_stat:.4f}")
 print(f"P-value: {p_val:.4e}")
 ```
 
-**Interpretation:** The p-value is practically 0 (far below 0.05). We reject the null hypothesis.
+**Interpretation:** The p-value is practically 0 (far below 0.05). We reject the null hypothesis and the effect size matters a lot. 
 
 **Business meaning:** There is a statistically significant difference in cost savings depending on smart card adoption. The data proves that adopting a smart fuel card isn't just a gimmick—it actually generates measurable monetary savings.
 
@@ -228,7 +228,7 @@ print(f"P-value: {p_val:.4e}")
 **H₁:** Using digital tracking affects the number of fuel theft incidents.
 
 ```{python}
-# T-test comparing 'YES' vs 'NO' for Digital Tracking Usage
+# We will use T-test comparing 'YES' vs 'NO' for Digital Tracking Usage
 theft_yes = df[df['Digital_Tracking_Usage'] == 'YES']['Fuel_Theft_Incidents']
 theft_no = df[df['Digital_Tracking_Usage'] == 'NO']['Fuel_Theft_Incidents']
 
@@ -239,7 +239,7 @@ print(f"P-value: {p_val2:.4e}")
 ```
 
 **Interpretation:**
-The p-value is extremely small (below 0.05). We reject the null hypothesis.
+The p-value is extremely small (below 0.05). We reject the null hypothesis and the effect size is of a moderate impact.
 
 **Business meaning:** Digital tracking systems statistically significantly alter the incidence of fuel theft. Managers looking to secure their assets must strongly consider digital tracking as an effective deterrent.
 
@@ -259,9 +259,9 @@ plt.show()
 ```
 
 **Top Strongest Relationships:**
-1. **Annual Fuel Spend & Monthly Fuel Spend (r = 1.00):** A perfect positive correlation, which is expected since annual spend is a direct multiple of monthly spend.
-2. **Cost Savings % & Fuel Theft Incidents (Negative association context):** Though direct linear correlation might appear weak due to skewness, deeper categorical tracking shows that as digital adherence goes up, theft goes down and savings go up.
-3. **Hours/Week on Reconciliation & Monthly Fuel Transactions (r ~ 0.01 to modest):** Interestingly, the raw correlation isn't purely linear, meaning that it isn't just the volume of transactions that causes reconciliation headaches—it is likely the method of tracking (cash vs. digital).
+1. **Fuel Theft Incidents vs Annual Fuel Spend (r = 0.14):** Weak positive relationship, as fuel spend increases, theft incidents slightly increase. The business implication is that larger fleets or organisations spending more on fuel may be more exposed to fuel theft due to higher transaction volumes and operational scale, its recommended that high spending companies implement fuel tracking or smart cards for better control.
+
+2. **Satisfaction vs Years Managing Fleet (r = -0.12):** Weak negative relationship, More experienced managers report slightly lower satisfaction. The business implication is that experienced managers may be more aware of inefficiencies in fuel systems, leading to lower satisfaction scores, its recommended to target experienced managers when introducing digital fuel solution.
 
 **Why Correlation ≠ Causation:** Just because high fuel spend correlates with larger fleets does not mean buying more fuel causes a fleet to grow. It simply means they scale together. Similarly, tools must be implemented correctly; buying a tool doesn't cause savings unless behavior changes.
 
@@ -336,6 +336,10 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 ## 12. References
 
 * Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Corporate and Individuals in Nigeria, March 2026. Ethical clearance: N/A.
+
+* Adi, B. (2026). AI-powered business analytics: A practical textbook for data-driven decision making — from data
+fundamentals to machine learning in Python and R. Lagos Business School / markanalytics.online.
+https://markanalytics.online
 
 * pandas (Used for all data loading, manipulation, and cleaning): McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 56-61.
 
