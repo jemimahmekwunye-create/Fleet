@@ -259,6 +259,7 @@ plt.show()
 ```
 
 **Top Strongest Relationships:**
+
 1. **Fuel Theft Incidents vs Annual Fuel Spend (r = 0.14):** Weak positive relationship, as fuel spend increases, theft incidents slightly increase. The business implication is that larger fleets or organisations spending more on fuel may be more exposed to fuel theft due to higher transaction volumes and operational scale, its recommended that high spending companies implement fuel tracking or smart cards for better control.
 
 2. **Satisfaction vs Years Managing Fleet (r = -0.12):** Weak negative relationship, More experienced managers report slightly lower satisfaction. The business implication is that experienced managers may be more aware of inefficiencies in fuel systems, leading to lower satisfaction scores, its recommended to target experienced managers when introducing digital fuel solution.
