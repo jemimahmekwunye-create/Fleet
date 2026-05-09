@@ -340,7 +340,7 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 fundamentals to machine learning in Python and R. Lagos Business School / markanalytics.online.
 https://markanalytics.online
 
-*Matplotlib (Used for visualization layout):
+* Matplotlib (Used for visualization layout):
 Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science & Engineering, 9(3), 90–95. https://doi.org/10.1109/MCSE.2007.55
 
 * Mekwunye, J. (2026). Fleet Fuel Management & Digital Adoption Survey [Survey instrument and dataset]. Administered to Corporate and Individuals in Nigeria, March 2026. Ethical clearance: N/A.
