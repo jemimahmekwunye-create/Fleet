@@ -86,7 +86,6 @@ plt.rcParams.update({
     'ytick.color': '#2c3e50',
     'text.color': '#2c3e50',
     'grid.color': '#dfe6e9',
-    'grid.linestyle': '-',
     'grid.linewidth': 0.8,
     'legend.frameon': False
 })
@@ -135,16 +134,21 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 
 ```{python}
 #| eval: False
-fig, ax = plt.subplots(figsize=(10, 6))
-sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color=core_palette[2], edgecolor='white', linewidth=0.8)
-ax.set_title('Distribution of Monthly Fuel Spend (NGN)', pad=15, fontsize=16)
-ax.set_xlabel('Monthly Fuel Spend (NGN)')
-ax.set_ylabel('Frequency')
+fig = plt.figure(figsize=(10, 6)) 
+ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color='red')
+plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
+plt.xlabel('Monthly Fuel Spend (NGN)')
+plt.ylabel('Frequency')
+# 2. Format with commas and hide scientific notation
 ax.xaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
 ax.xaxis.get_offset_text().set_visible(False)
+# 3. Rotate and align
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.show()
+# 4. Save the figure explicitly BEFORE showing or closing
+fig.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
+# 5. Close the figure so it doesn't print a broken one to the screen
+plt.close(fig)
 ```
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
