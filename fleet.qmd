@@ -92,7 +92,7 @@ plt.rcParams.update({
     'grid.linewidth': 0.8,
     'legend.frameon': False,
     'font.family': 'sans-serif',
-    'font.sans-serif': ['Segoe UI', 'Arial', 'sans-serif']
+    'font.sans-serif': ['DejaVu Sans', 'Liberation Sans', 'Arial', 'sans-serif']
 })
 
 print("=== Data Types ===")
@@ -159,7 +159,18 @@ plt.show()
 
 ```{python}
 plt.figure(figsize=(10, 6))
-sns.boxplot(x='Digital_Tracking_Usage', y='Fuel_Theft_Incidents', data=df, palette=core_palette)
+ax = sns.boxplot(
+    x='Digital_Tracking_Usage',
+    y='Fuel_Theft_Incidents',
+    data=df,
+    showfliers=False,
+    medianprops={'color': '#0b3e72', 'linewidth': 2},
+    boxprops={'linewidth': 1.2}
+)
+for i, artist in enumerate(ax.artists):
+    artist.set_facecolor(core_palette[i])
+    artist.set_edgecolor('#2c3e50')
+    artist.set_alpha(0.9)
 plt.title('Fuel Theft Incidents by Digital Tracking Usage', pad=12, fontsize=16)
 plt.xlabel('Digital Tracking Usage')
 plt.ylabel('Reported Fuel Theft Incidents')
