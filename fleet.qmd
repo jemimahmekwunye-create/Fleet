@@ -62,6 +62,7 @@ As an Executive Assistant in the Energy Technology and Intelligence sector focus
 #| warning: false
 import pandas as pd
 import numpy as np
+import warnings
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -137,6 +138,7 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 **6.1 Distribution of Monthly Fuel Spend**
 
 ```{python}
+#| eval: False
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color=core_palette[2], edgecolor='white', linewidth=0.8)
 ax.set_title('Distribution of Monthly Fuel Spend (NGN)', pad=15, fontsize=16)
@@ -243,7 +245,7 @@ ax = sns.boxplot(
     x='Smart_Card_Adoption', 
     y='Cost_Savings_pct', 
     data=df, 
-    palette='Set2',
+    palette=core_palette,
     showfliers=False # We hide standard outliers so the stripplot can show all actual points
 )
 # Overlay a stripplot to show individual data points
@@ -251,8 +253,8 @@ sns.stripplot(
     x='Smart_Card_Adoption', 
     y='Cost_Savings_pct', 
     data=df, 
-    color='black', 
-    alpha=0.5, 
+    color='#2c3e50', 
+    alpha=0.65, 
     jitter=True
 )
 plt.title('Distribution of Cost Savings (%) by Smart Card Adoption', pad=15)
@@ -292,17 +294,17 @@ sns.boxplot(
     x='Digital_Tracking_Usage', 
     y='Fuel_Theft_Incidents', 
     data=df, 
-    palette='pastel',
+    palette=core_palette,
     order=['NO', 'PLANNING TO', 'YES'], 
     showfliers=False,
-    medianprops={'color': 'red', 'linewidth': 3} # Forces the median line to be thick and bright red
+    medianprops={'color': '#0b3e72', 'linewidth': 3} # Forces the median line to be thick and bright blue
 )
 # Stripplot
 sns.stripplot(
     x='Digital_Tracking_Usage', 
     y='Fuel_Theft_Incidents', 
     data=df, 
-    color='black', 
+    color='#2c3e50', 
     alpha=0.6, 
     jitter=True,
     order=['NO', 'PLANNING TO', 'YES']
