@@ -150,6 +150,7 @@ fig.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
 # 5. Close the figure so it doesn't print a broken one to the screen
 plt.close(fig)
 ```
+![Distribution of Monthly Fuel Spend](monthly_fuel_spend.png)
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
 
