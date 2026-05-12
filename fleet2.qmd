@@ -10,7 +10,7 @@ format:
     self-contained: true
     css: fleet.css
     server: shiny
-    format:html
+    format: html
 jupyter: python3
 ---
 
