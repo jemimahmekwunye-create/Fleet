@@ -481,3 +481,5 @@ Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical mod
 **Human Judgment Applied:** Human judgment was applied in translating statistical outputs (e.g., P-values, skewed distributions, and OLS regression coefficients) into business recommendations tailored specifically to the Corporate and fleet management sector. The core hypotheses were strictly driven by the authors analytical reasoning.
 
 **GitHub:** [jemimahmekwunye-create/Fleet-repo](https://github.com/jemimahmekwunye-create/Fleet)
+
+**Dashboard:** [jemimahmekwunye-create/Fleet-Dashboard](https://jemimahmekwunye.shinyapps.io/fleet/)
