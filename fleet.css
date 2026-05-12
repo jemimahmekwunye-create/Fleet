@@ -26,9 +26,10 @@ h3 {
 
 hr {
   border: none;
-  border-top: 2px dashed #2e6ab7;
+  height: 1px;
+  background-color: #2e6ab7;
+  opacity: 0.45;
   margin: 2rem 0;
-  opacity: 0.85;
 }
 
 /* Improve section breaks with a subtle line under headings */
