@@ -156,6 +156,7 @@ plt.show()
 **6.2 Fuel Theft Incidents vs. Digital Tracking Usage**
 
 ```{python}
+warnings.filterwarnings('ignore')
 plt.figure(figsize=(10, 6))
 ax = sns.boxplot(
     x='Digital_Tracking_Usage',
