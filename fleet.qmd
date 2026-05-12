@@ -90,9 +90,7 @@ plt.rcParams.update({
     'grid.color': '#dfe6e9',
     'grid.linestyle': '-',
     'grid.linewidth': 0.8,
-    'legend.frameon': False,
-    'font.family': 'sans-serif',
-    'font.sans-serif': ['DejaVu Sans', 'Liberation Sans', 'Arial', 'sans-serif']
+    'legend.frameon': False
 })
 
 print("=== Data Types ===")
