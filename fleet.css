@@ -25,11 +25,7 @@ h3 {
 }
 
 hr {
-  border: none;
-  height: 1px;
-  background-color: #2e6ab7;
-  opacity: 0.45;
-  margin: 2rem 0;
+  display: none;
 }
 
 /* Improve section breaks with a subtle line under headings */
