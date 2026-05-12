@@ -28,8 +28,6 @@ jupyter: python3
 
 **Recommendation:** Fleet operators should actively transition from cash-based/mixed methods to integrated digital tracking and smart fuel card solutions. Doing so will immediately lower reconciliation hours, mitigate theft, and drive significant cost savings.
 
----
-
 ## 2. Professional Disclosure
 
 **Role:** Executive Assistant  
