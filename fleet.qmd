@@ -8,6 +8,7 @@ format:
     toc: true
     code-fold: true
     self-contained: true
+    css: fleet.css
 jupyter: python3
 ---
 
@@ -25,7 +26,7 @@ jupyter: python3
 
 3. A strong inverse relationship exists between Digital Tracking Usage and the number of hours spent weekly on fuel reconciliation.
 
-**Final Recommendation:** Fleet operators should actively transition from cash-based/mixed methods to integrated digital tracking and smart fuel card solutions. Doing so will immediately lower reconciliation hours, mitigate theft, and drive significant cost savings.
+**Recommendation:** Fleet operators should actively transition from cash-based/mixed methods to integrated digital tracking and smart fuel card solutions. Doing so will immediately lower reconciliation hours, mitigate theft, and drive significant cost savings.
 
 ---
 
@@ -74,6 +75,25 @@ df = pd.read_csv('Fleet Fuel Management & Digital Adoption Survey.csv', encoding
 # Standardize column names for ease of use in Python
 df.columns = [c.replace(' ', '_').replace('(', '').replace(')', '').replace('%', 'pct').replace('-', '_').replace('/', '_') for c in df.columns]
 
+# Business presentation styling for charts
+core_palette = sns.color_palette('Set1', 8)
+sns.set_theme(style='whitegrid', palette=core_palette, font_scale=1.08)
+plt.rcParams.update({
+    'figure.facecolor': 'white',
+    'axes.facecolor': 'white',
+    'axes.edgecolor': '#2c3e50',
+    'axes.labelcolor': '#2c3e50',
+    'xtick.color': '#2c3e50',
+    'ytick.color': '#2c3e50',
+    'text.color': '#2c3e50',
+    'grid.color': '#dfe6e9',
+    'grid.linestyle': '-',
+    'grid.linewidth': 0.8,
+    'legend.frameon': False,
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Segoe UI', 'Arial', 'sans-serif']
+})
+
 print("=== Data Types ===")
 print(df.dtypes)
 ```
@@ -117,21 +137,17 @@ The typical fleet spends a significant amount monthly on fuel. Fortunately, ther
 **6.1 Distribution of Monthly Fuel Spend**
 
 ```{python}
-#| eval: false
-fig = plt.figure(figsize=(10, 6)) 
-ax = sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color='skyblue')
-plt.title('Distribution of Monthly Fuel Spend (NGN)', pad=15)
-plt.xlabel('Monthly Fuel Spend (NGN)')
-plt.ylabel('Frequency')
+fig, ax = plt.subplots(figsize=(10, 6))
+sns.histplot(df['Monthly_Fuel_Spend_NGN'], bins=15, kde=True, color=core_palette[2], edgecolor='white', linewidth=0.8)
+ax.set_title('Distribution of Monthly Fuel Spend (NGN)', pad=15, fontsize=16)
+ax.set_xlabel('Monthly Fuel Spend (NGN)')
+ax.set_ylabel('Frequency')
 ax.xaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
 ax.xaxis.get_offset_text().set_visible(False)
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-fig.savefig("monthly_fuel_spend.png", dpi=300, bbox_inches='tight')
-plt.close(fig) 
-display(Image(filename="monthly_fuel_spend.png"))
+plt.show()
 ```
-![Distribution of Monthly Fuel Spend](monthly_fuel_spend.png)
 
 **Explanation & Insight:** This histogram shows that monthly fuel spend is uniformly distributed among a wide range, representing a diverse mix of small and large enterprise fleets.
 
@@ -140,11 +156,12 @@ display(Image(filename="monthly_fuel_spend.png"))
 **6.2 Fuel Theft Incidents vs. Digital Tracking Usage**
 
 ```{python}
-plt.figure(figsize=(8, 5))
-sns.boxplot(x='Digital_Tracking_Usage', y='Fuel_Theft_Incidents', data=df, palette='Set2')
-plt.title('Fuel Theft Incidents by Digital Tracking Usage')
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='Digital_Tracking_Usage', y='Fuel_Theft_Incidents', data=df, palette=core_palette)
+plt.title('Fuel Theft Incidents by Digital Tracking Usage', pad=12, fontsize=16)
 plt.xlabel('Digital Tracking Usage')
 plt.ylabel('Reported Fuel Theft Incidents')
+plt.tight_layout()
 plt.show()
 ```
 
@@ -155,12 +172,13 @@ plt.show()
 **6.3 Cost Savings vs Smart Card Adoption**
 
 ```{python}
-plt.figure(figsize=(8, 5))
-sns.barplot(x='Smart_Card_Adoption', y='Cost_Savings_pct', data=df, errorbar='ci', palette='viridis')
-plt.title('Average Cost Savings (%) by Smart Card Adoption Status')
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Smart_Card_Adoption', y='Cost_Savings_pct', data=df, errorbar='ci', palette=core_palette)
+plt.title('Average Cost Savings (%) by Smart Card Adoption Status', pad=12, fontsize=16)
 plt.xlabel('Smart Card Adoption')
 plt.ylabel('Average Cost Savings (%)')
 plt.xticks(rotation=15)
+plt.tight_layout()
 plt.show()
 ```
 
@@ -171,11 +189,12 @@ plt.show()
 **6.4 Satisfaction vs Digital Tracking Usage**
 
 ```{python}
-plt.figure(figsize=(8, 5))
-sns.countplot(x='Satisfaction_1_5', hue='Digital_Tracking_Usage', data=df, palette='magma')
-plt.title('Satisfaction Ratings Segmented by Digital Tracking Usage')
+plt.figure(figsize=(10, 6))
+sns.countplot(x='Satisfaction_1_5', hue='Digital_Tracking_Usage', data=df, palette=core_palette)
+plt.title('Satisfaction Ratings Segmented by Digital Tracking Usage', pad=12, fontsize=16)
 plt.xlabel('Satisfaction Level (1 = Lowest, 5 = Highest)')
 plt.ylabel('Count of Respondents')
+plt.tight_layout()
 plt.show()
 ```
 
@@ -187,8 +206,8 @@ plt.show()
 
 ```{python}
 plt.figure(figsize=(10, 6))
-sns.histplot(data=df, y='Adoption_Barrier', hue='Organisation_Size', multiple="stack", palette='tab10')
-plt.title('Perceived Barriers to Adoption by Organisation Size')
+sns.histplot(data=df, y='Adoption_Barrier', hue='Organisation_Size', multiple='stack', palette=core_palette)
+plt.title('Perceived Barriers to Adoption by Organisation Size', pad=12, fontsize=16)
 plt.xlabel('Count')
 plt.ylabel('Adoption Barrier')
 plt.tight_layout()
@@ -217,9 +236,37 @@ print(f"F-statistic: {f_stat:.4f}")
 print(f"P-value: {p_val:.4e}")
 ```
 
-**Interpretation:** The p-value is practically 0 (far below 0.05). We reject the null hypothesis and the effect size matters a lot. 
+```{python}
+plt.figure(figsize=(10, 6))
+# Create a boxplot to show the distribution and variance
+ax = sns.boxplot(
+    x='Smart_Card_Adoption', 
+    y='Cost_Savings_pct', 
+    data=df, 
+    palette='Set2',
+    showfliers=False # We hide standard outliers so the stripplot can show all actual points
+)
+# Overlay a stripplot to show individual data points
+sns.stripplot(
+    x='Smart_Card_Adoption', 
+    y='Cost_Savings_pct', 
+    data=df, 
+    color='black', 
+    alpha=0.5, 
+    jitter=True
+)
+plt.title('Distribution of Cost Savings (%) by Smart Card Adoption', pad=15)
+plt.xlabel('Smart Card Adoption Status')
+plt.ylabel('Cost Savings (%)')
+# Rotate labels slightly to ensure they fit nicely
+plt.xticks(rotation=15)
+plt.tight_layout()
+plt.show()
+```
+**Interpretation:** Statistical analysis confirms a massive disparity in cost savings driven by smart card adoption (p < 0.05). The data reveals a harsh reality: intent does not equal ROI. Fleets that are willing to adopt, but haven't yet, perform identically to those who outright refuse—generating zero savings. Significant, actualized savings belong almost exclusively to fully activated users
 
-**Business meaning:** There is a statistically significant difference in cost savings depending on smart card adoption. The data proves that adopting a smart fuel card isn't just a gimmick—it actually generates measurable monetary savings.
+**Business meaning:** Data proves that smart fuel cards drive significant, measurable cost savings, but highlights a harsh reality: intent does not equal ROI. Fleets merely 'planning' to adopt generate zero savings, performing identically to those who refuse entirely. For FinTech providers, the true bottleneck is onboarding friction, not market interest. Because financial value is strictly gated behind full activation, operations teams must obsess over rapid 'Time-to-Value' (TTV)—urgently converting signed contracts into active, card-swiping users to stop the financial bleed.
+
 
 **Hypothesis 2: Digital Tracking and Fuel Theft**
 
@@ -238,11 +285,37 @@ print(f"T-statistic: {t_stat:.4f}")
 print(f"P-value: {p_val2:.4e}")
 ```
 
-**Interpretation:**
-The p-value is extremely small (below 0.05). We reject the null hypothesis and the effect size is of a moderate impact.
-
-**Business meaning:** Digital tracking systems statistically significantly alter the incidence of fuel theft. Managers looking to secure their assets must strongly consider digital tracking as an effective deterrent.
-
+```{python}
+plt.figure(figsize=(9, 6))
+# Boxplot with custom median and mean indicators
+sns.boxplot(
+    x='Digital_Tracking_Usage', 
+    y='Fuel_Theft_Incidents', 
+    data=df, 
+    palette='pastel',
+    order=['NO', 'PLANNING TO', 'YES'], 
+    showfliers=False,
+    medianprops={'color': 'red', 'linewidth': 3} # Forces the median line to be thick and bright red
+)
+# Stripplot
+sns.stripplot(
+    x='Digital_Tracking_Usage', 
+    y='Fuel_Theft_Incidents', 
+    data=df, 
+    color='black', 
+    alpha=0.6, 
+    jitter=True,
+    order=['NO', 'PLANNING TO', 'YES']
+)
+plt.title('Fuel Theft Incidents by Digital Tracking Usage', pad=15)
+plt.xlabel('Digital Tracking Usage')
+plt.ylabel('Reported Fuel Theft Incidents (Monthly)')
+plt.tight_layout()
+plt.show()
+```
+**Interpretation:** The T-test confirms a statistically significant difference in theft incidents between adopters and non-adopters (p < 0.05). However, the chart reveals a counterintuitive reality: fleets with digital tracking report a higher frequency of theft (Median = 2) than fleets without tracking (Median = 1).
+**Business meaning:** Fleets without digital tracking are not experiencing less theft; they simply lack the telemetry to detect it. They operate with severe blind spots, only documenting an incident when a catastrophic amount of fuel goes missing,Conversely, the immediate effect of implementing digital tracking is an increase in documented incidents. The system functions as a spotlight, flagging micro-thefts, unauthorized detours, and fuel drops that were previously written off as "standard consumption.
+The sales pitch must reflect this reality: digital tracking will initially uncover a higher volume of theft, but it is this exact visibility that empowers management to finally plug the leaks and drive the high cost-savings seen in the smart card data
 ---
 
 ## 8. Correlation Analysis
@@ -253,8 +326,9 @@ plt.figure(figsize=(10, 8))
 numeric_cols = df.select_dtypes(include=[np.number])
 corr_matrix = numeric_cols.corr()
 
-sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
-plt.title('Correlation Heatmap of Numeric Variables')
+sns.heatmap(corr_matrix, annot=True, cmap='Blues', fmt='.2f', linewidths=0.5, annot_kws={'size': 8})
+plt.title('Correlation Heatmap of Numeric Variables', pad=12, fontsize=16)
+plt.tight_layout()
 plt.show()
 ```
 
@@ -322,7 +396,7 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 
 ---
 
-## 11. Limitations & Further Work
+## 11. Limitations 
 
 * **Survey Bias:** Data is self-reported. Respondents may underestimate their "Fuel Theft Incidents" or overestimate their "Satisfaction" due to social desirability bias.
 
@@ -330,11 +404,23 @@ By synthesizing EDA, Visualisation, Hypothesis Testing, and Regression, a clear 
 
 * **Missing Variables:** The dataset lacks specific telematics data (e.g., precise GPS mileage, vehicle idling time) which directly affects fuel burn rate.
 
-* **Future Work:** Future analyses should incorporate time-series telemetric data combined with this survey data to track real-time fuel efficiency (KM/Liter) against the self-reported cost savings.
+---
+
+## 12. Recommendations
+
+Based on the integrated findings from the exploratory, statistical, and regression analyses, we recommend the following strategic actions for both fleet operators and FinTech providers:
+
+1. **Mandate Full Digital Integration**
+Operators must actively transition away from cash-based and mixed payment methods. Fleet management companies should mandate the use of integrated digital tracking and smart fuel card solutions across all units. As proven by the data, this transition immediately lowers manual reconciliation hours, caps severe theft exposure, and drives significant cost savings. Crucially, leadership must enforce active implementation, as financial ROI is strictly gated behind actual usage, not mere intent.
+
+2. **Deploy ROI-Driven Pricing Models**
+To overcome the dominant "Cost" barrier highlighted in the exploratory analysis, we must restructure our acquisition strategy. Providers should offer "freemium" pilot programs or performance-based pricing models (where software costs are subsidized by a percentage of the fuel money saved). By allowing clients to experience the immediate drop in theft and reconciliation hours risk-free, providers can rapidly convert skeptical prospects into active, highly-retained users.
+
+**Future Work:** To validate these self-reported financial savings, future analyses must move beyond survey data. The next phase of this research should incorporate time-series telematics data (e.g., precise GPS mileage, vehicle idling time). By tracking real-time fuel efficiency (KM/Liter) and cross-referencing it against these initial survey results, we can build a highly precise, predictive model for fleet fuel optimization.
 
 ---
 
-## 12. References
+## 13. References
 
 * Adi, B. (2026). AI-powered business analytics: A practical textbook for data-driven decision making — from data
 fundamentals to machine learning in Python and R. Lagos Business School / markanalytics.online.
@@ -364,10 +450,10 @@ Seabold, S., & Perktold, J. (2010). Statsmodels: Econometric and statistical mod
 
 ---
 
-## 13. Appendix: AI Usage Statement
+## 14. Appendix: AI Usage Statement
 
 **AI Assistance Statement:** AI tools were utilized during the creation of this document strictly for code formatting, syntax optimization (Pandas, Matplotlib, Seaborn, OLS, statmodels), the decision to apply log transformation to heavily skewed data, and structuring the Quarto markdown template.
 
 **Human Judgment Applied:** Human judgment was applied in translating statistical outputs (e.g., P-values, skewed distributions, and OLS regression coefficients) into business recommendations tailored specifically to the Corporate and fleet management sector. The core hypotheses were strictly driven by the authors analytical reasoning.
 
-**Link:** [GitHub](https://github.com/jemimahmekwunye-create/Fleet)
+**Link:** [jemimahmekwunye-create/Fleet-repo](https://github.com/jemimahmekwunye-create/Fleet)
