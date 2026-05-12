@@ -282,6 +282,7 @@ plt.xticks(rotation=15)
 plt.tight_layout()
 plt.show()
 ```
+
 **Interpretation:** Statistical analysis confirms a massive disparity in cost savings driven by smart card adoption (p < 0.05). The data reveals a harsh reality: intent does not equal ROI. Fleets that are willing to adopt, but haven't yet, perform identically to those who outright refuse—generating zero savings. Significant, actualized savings belong almost exclusively to fully activated users
 
 **Business meaning:** Data proves that smart fuel cards drive significant, measurable cost savings, but highlights a harsh reality: intent does not equal ROI. Fleets merely 'planning' to adopt generate zero savings, performing identically to those who refuse entirely. For FinTech providers, the true bottleneck is onboarding friction, not market interest. Because financial value is strictly gated behind full activation, operations teams must obsess over rapid 'Time-to-Value' (TTV)—urgently converting signed contracts into active, card-swiping users to stop the financial bleed.
@@ -334,6 +335,7 @@ plt.tight_layout()
 plt.show()
 ```
 **Interpretation:** The T-test confirms a statistically significant difference in theft incidents between adopters and non-adopters (p < 0.05). However, the chart reveals a counterintuitive reality: fleets with digital tracking report a higher frequency of theft (Median = 2) than fleets without tracking (Median = 1).
+
 **Business meaning:** Fleets without digital tracking are not experiencing less theft; they simply lack the telemetry to detect it. They operate with severe blind spots, only documenting an incident when a catastrophic amount of fuel goes missing,Conversely, the immediate effect of implementing digital tracking is an increase in documented incidents. The system functions as a spotlight, flagging micro-thefts, unauthorized detours, and fuel drops that were previously written off as "standard consumption.
 The sales pitch must reflect this reality: digital tracking will initially uncover a higher volume of theft, but it is this exact visibility that empowers management to finally plug the leaks and drive the high cost-savings seen in the smart card data
 ---
